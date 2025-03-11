@@ -1,0 +1,25 @@
+name: Game Payout (Staging)
+
+on:
+  schedule:
+    # This runs every hour, but you can adjust the frequency
+    - cron: '*/2 * * * *'
+  # Enable manual triggering for testing
+  workflow_dispatch:
+    inputs:
+      endpoint:
+        description: 'Trigger Endpoint'
+        required: true
+        default: 'https://staging.sweep.gg/api/game/payout'
+      duration:
+        description: 'Duration to run in seconds'
+        required: true
+        default: '20'
+
+jobs:
+  build:
+    name: Cron-job to trigger game payouts (Staging)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger game payouts (Staging)
+        run: curl --silent --header "cronjob-token:${{ secrets.CRONJOB_TOKEN }}" https://staging.sweep.gg/api/game/payout
