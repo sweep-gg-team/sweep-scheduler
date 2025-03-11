@@ -22,4 +22,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger game payouts (Staging)
-        run: curl --silent --header "cronjob-token:${{ secrets.CRONJOB_TOKEN }}" https://staging-api.sweep.gg/api/game/payout
+        run: curl --silent --header "cronjob-token:${{ secrets.CRONJOB_TOKEN }}" https://staging-api.sweep.gg/api/game/payout-winners
