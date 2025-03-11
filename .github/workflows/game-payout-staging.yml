@@ -10,7 +10,7 @@ on:
       endpoint:
         description: 'Trigger Endpoint'
         required: true
-        default: 'https://staging.sweep.gg/api/game/payout'
+        default: 'https://staging-api.sweep.gg/api/game/payout'
       duration:
         description: 'Duration to run in seconds'
         required: true
@@ -22,4 +22,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger game payouts (Staging)
-        run: curl --silent --header "cronjob-token:${{ secrets.CRONJOB_TOKEN }}" https://staging.sweep.gg/api/game/payout
+        run: curl --silent --header "cronjob-token:${{ secrets.CRONJOB_TOKEN }}" https://staging-api.sweep.gg/api/game/payout
